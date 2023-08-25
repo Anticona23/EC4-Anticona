@@ -6,11 +6,11 @@ const client = require('../client');
 const NuevoIntegrantePage = () => {
     let { id } = useParams();
 
-    const [musicos, setMusicos] = useState([])
-    const [instrumentos, setInstrumentos] = useState([])
+    const [autores, setAutores] = useState([])
+    const [libros, setLibros] = useState([])
     
-    const [idMusico, setIdMusico] = useState('')
-    const [idInstrumento, setIdInstrumento] = useState('')
+    const [idAutor, setIdAutor] = useState('')
+    const [idLibro, setIdLibro] = useState('')
 
     const handleSubmit = (evento)=>{
         evento.preventDefault();
@@ -18,9 +18,9 @@ const NuevoIntegrantePage = () => {
             method: 'POST',
             path: '/api/integrantes',
             entity: {
-                banda: 'http://localhost:8080/api/bandas/'+id,
-                musico: 'http://localhost:8080/api/musicos/'+idMusico,
-                instrumento: 'http://localhost:8080/api/instrumentos/'+idInstrumento},
+                biblioteca: 'http://localhost:8080/api/bibliotecas/'+id,
+                autor: 'http://localhost:8080/api/autores/'+idAutor,
+                libro: 'http://localhost:8080/api/libros/'+idLibro},
             headers: {'Content-Type': 'application/json'}
         }).done(()=>{
            window.location = '/';
@@ -30,45 +30,45 @@ const NuevoIntegrantePage = () => {
     useEffect(() => {
         client({
             method: 'GET',
-            path: '/api/musicos'
+            path: '/api/autores'
         }).done(response=>{
-            setMusicos(response.entity._embedded.musicos)
+            setAutores(response.entity._embedded.autores)
         })
         client({
             method: 'GET',
-            path: '/api/instrumentos'
+            path: '/api/libros'
         }).done(response=>{
-            setInstrumentos(response.entity._embedded.instrumentos)
+            setLibros(response.entity._embedded.libros)
         })
 
     },[])
 
     return (
         <>
-            <h1>Nuevo Integrante</h1>
+            <h1>Nuevo Ingreso</h1>
             <form onSubmit={handleSubmit}>
 
-                <label htmlFor='musico'>Musico </label>
-                <select name="musico" id="musico" onChange={(e)=>{setIdMusico(e.target.value)}}>
-                    {musicos.map(musico => {	
-                        const value = musico._links.self.href.split('/').slice(-1)
+                <label htmlFor='autor'>Autor </label>
+                <select name="autor" id="autor" onChange={(e)=>{setIdAutor(e.target.value)}}>
+                    {autores.map(autor => {	
+                        const value = autor._links.self.href.split('/').slice(-1)
                         return (
-                            <option key={value} value={value}>[{musico.nombre}]</option>
+                            <option key={value} value={value}>[{autor.nombre}]</option>
                         )
                     })}
                 </select><br />
                 
-                <label>Instrumento </label>
-                <select name="instrumento" id="instrumento" onChange={(e)=>{setIdInstrumento(e.target.value)}}>
-                    {instrumentos.map(instrumento => {	
-                        const value = instrumento._links.self.href.split('/').slice(-1)
+                <label>Libro </label>
+                <select name="libro" id="libro" onChange={(e)=>{setIdLibro(e.target.value)}}>
+                    {libros.map(libro => {	
+                        const value = libro._links.self.href.split('/').slice(-1)
                         return (
-                            <option key={value} value={value}>({instrumento.nombre})</option>
+                            <option key={value} value={value}>({libro.nombre})</option>
                         )
                     })}
                 </select><br />
 
-                <input type="submit" value="Nuevo Integrante" />
+                <input type="submit" value="Nuevo Libro" />
 
             </form>
             <Link to="/">Volver</Link>

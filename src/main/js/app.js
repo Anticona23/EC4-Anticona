@@ -3,25 +3,31 @@ const ReactDOM = require('react-dom');
 const {createBrowserRouter, RouterProvider} = require('react-router-dom');
 
 const HomePage = require('./pages/home');
-const NuevoMusicoPage = require('./pages/nuevo-musico');
-const VerInstrumentoPage = require('./pages/ver-instrumento');
-const NuevoInstrumentoPage = require('./pages/nuevo-instrumento');
-const VerMusicoPage = require('./pages/ver-musico');
-const EditarInstrumentoPage = require('./pages/editar-instrumento');
-const VerBandaPage = require('./pages/ver-banda');
+
+const NuevoAutorPage = require('./pages/nuevo-autor');
+const VerAutorPage = require('./pages/ver-autor');
+
+const NuevoLibroPage = require('./pages/nuevo-libro');
+const VerLibroPage = require('./pages/ver-libro');
+
+
+const VerBibliotecaPage = require('./pages/ver-biblioteca');
+
 const NuevoIntegrantePage = require('./pages/nuevo-integrante');
 
 
 const router = createBrowserRouter([
 	{ path: '/', element: <HomePage /> },
-	{ path: '/ver-instrumento/:id', element: <VerInstrumentoPage /> },
-	{ path: '/nuevo-instrumento', element: <NuevoInstrumentoPage /> },
-	{ path: '/ver-musico/:id', element: <VerMusicoPage /> },
-	{ path: '/nuevo-musico', element: <NuevoMusicoPage /> },
-	{ path: '/editar-instrumento/:id', element: <EditarInstrumentoPage /> },
-	{ path: '/ver-banda/:id', element: <VerBandaPage /> },
-	{ path: '/ver-banda/:id/nuevo-integrante', element: <NuevoIntegrantePage /> },
+	{ path: '/ver-libro/:id', element: <VerLibroPage /> },
+	{ path: '/nuevo-libro', element: <NuevoLibroPage /> },
+	{ path: '/ver-autor/:id', element: <VerAutorPage /> },
+	{ path: '/nuevo-autor', element: <NuevoAutorPage /> },
+	{ path: '/ver-biblioteca/:id', element: <VerBibliotecaPage /> },
+	{ path: '/ver-biblioteca/:id/nuevo-integrante', element: <NuevoIntegrantePage /> },
+
+
 ])
+
 
 ReactDOM.render(
 	<React.StrictMode>

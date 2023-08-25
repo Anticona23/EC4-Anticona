@@ -3,34 +3,34 @@ const { Link, useParams } = require('react-router-dom');
 const { useState, useEffect } = require('react');
 const client = require('../client');
 
-const VerBandaPage = () => {
+const VerBibliotecaPage = () => {
 
     let { id } = useParams();
-    const [banda, setBanda] = useState({});
+    const [biblioteca, setBiblioteca] = useState({});
     const [integrantes, setIntegrantes] = useState([]);
 
     useEffect(() => {
         client({
             method: 'GET',
-            path: '/api/bandas/' + id
-        }).done(response => setBanda(response.entity))
+            path: '/api/bibliotecas/' + id
+        }).done(response => setBiblioteca(response.entity))
         client({
             method: 'GET',
-            path: '/api/bandas/' + id + '/formacion'
+            path: '/api/bibliotecas/' + id + '/formacion'
         }).done(response => setIntegrantes(response.entity))
     }, [])
 
 
     return (
         <>
-            <h1>Ver Banda</h1>
+            <h1>Ver Biblioteca</h1>
             <hr />
 
             <table border="1">
                 <tbody>
                     <tr>
                         <th>Nombre</th>
-                        <td>{banda.nombre}</td>
+                        <td>{biblioteca.nombre}</td>
                     </tr>
                 </tbody>
             </table>
@@ -40,8 +40,8 @@ const VerBandaPage = () => {
             <table border="1">
                 <thead>
                     <tr>
-                        <th>Musico</th>
-                        <th>Instrumento</th>
+                        <th>Autor</th>
+                        <th>Libro</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,8 +49,8 @@ const VerBandaPage = () => {
                     {integrantes.map(integrante=>{
                         return(
                             <tr key={integrante.ID}>
-                                <td>{integrante.MUSICO}</td>
-                                <td>{integrante.INSTRUMENTO}</td>
+                                <td>{integrante.AUTOR}</td>
+                                <td>{integrante.LIBRO}</td>
                             </tr>
                         )
                     })}
@@ -60,11 +60,12 @@ const VerBandaPage = () => {
             </table>
 
             <hr />
-            <Link to={`/ver-banda/${id}/nuevo-integrante`}>Nuevo Integrante</Link> |
+            <Link to={`/ver-biblioteca/${id}/nuevo-integrante`}>Nuevo Libro</Link> |
             <Link to="/">Volver</Link>
+            
         </>
     )
 
 }
 
-module.exports = VerBandaPage;
+module.exports = VerBibliotecaPage;

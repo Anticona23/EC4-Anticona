@@ -3,33 +3,33 @@ const { Link, useParams } = require('react-router-dom');
 const {useState} = require('react');
 const client = require('../client');
 
-const VerInstrumentoPage = () => {
+const VerLibroPage = () => {
 
     let { id } = useParams();
-    const [instrumento, setInstrumento] = useState({});
+    const [libro, setLibro] = useState({});
 
     client({
         method: 'GET',
-        path: '/api/instrumentos/' + id
-    }).done(response=>setInstrumento(response.entity))
+        path: '/api/libros/' + id
+    }).done(response=>setLibro(response.entity))
 
 
     return (
         <>
-            <h1>Ver Instrumento</h1>
+            <h1>Ver Libro</h1>
 
             <table>
                 <tr>
                     <th>Nombre</th>
-                    <td>{instrumento.nombre}</td>
+                    <td>{libro.nombre}</td>
                 </tr>
                 <tr>
-                    <th>Categoría</th>
-                    <td>{instrumento.categoria}</td>
+                    <th>Año</th>
+                    <td>{libro.fecha}</td>
                 </tr>
                 <tr>
-                    <th>Descripción</th>
-                    <td>{instrumento.descripcion}</td>
+                    <th>Editorial</th>
+                    <td>{libro.editorial}</td>
                 </tr>
             </table>
 
@@ -39,4 +39,4 @@ const VerInstrumentoPage = () => {
 
 }
 
-module.exports = VerInstrumentoPage;
+module.exports = VerLibroPage;

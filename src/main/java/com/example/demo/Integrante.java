@@ -11,23 +11,23 @@ public class Integrante {
      private @Id @GeneratedValue Long id;
 
     @ManyToOne()
-    @JoinColumn(name = "id_banda")
-    private Banda banda;
+    @JoinColumn(name = "id_biblioteca")
+    private Biblioteca biblioteca;
 
     @ManyToOne()
-    @JoinColumn(name = "id_musico")
-    private Musico musico;
+    @JoinColumn(name = "id_autor")
+    private Autor autor;
 
     @ManyToOne()
-    @JoinColumn(name = "id_instrumento")
-    private Instrumento instrumento;
+    @JoinColumn(name = "id_libro")
+    private Libro libro;
 
     public Integrante() {}
 
-    public Integrante(Banda banda, Musico musico, Instrumento instrumento) {
-        this.banda = banda;
-        this.musico = musico;
-        this.instrumento = instrumento;
+    public Integrante(Biblioteca biblioteca, Autor autor, Libro libro) {
+        this.biblioteca = biblioteca;
+        this.autor = autor;
+        this.libro = libro;
     }
 
 	public Long getId() {
@@ -38,27 +38,29 @@ public class Integrante {
 		this.id = id;
 	}
 
-	public Banda getBanda() {
-		return banda;
+	public Biblioteca getBiblioteca() {
+		return biblioteca;
 	}
 
-	public void setBanda(Banda banda) {
-		this.banda = banda;
+	public void setBiblioteca(Biblioteca biblioteca) {
+		this.biblioteca = biblioteca;
 	}
 
-	public Musico getMusico() {
-		return musico;
+	public Autor getAutor() {
+		return autor;
 	}
 
-	public void setMusico(Musico musico) {
-		this.musico = musico;
+	public void setAutor(Autor autor) {
+		this.autor = autor;
 	}
 
-	public Instrumento getInstrumento() {
-		return instrumento;
+	public Libro getLibro() {
+		return libro;
 	}
 
-	public void setInstrumento(Instrumento instrumento) {
-		this.instrumento = instrumento;
+	public void setLibro(Libro libro) {
+		this.libro = libro;
 	}
+
+	
 }
