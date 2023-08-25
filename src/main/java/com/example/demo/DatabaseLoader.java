@@ -28,30 +28,35 @@ public class DatabaseLoader implements CommandLineRunner {
 	@Override
 	public void run(String... strings) throws Exception {
 		
-		this.repositoryI.save(new Libro("Guitarra", "Cuerda", "de madera, con caja de resonancia, 6 cuerdas templadas"));
-		this.repositoryI.save(new Libro("Ukelele","Cuerda","de madera, con caja de resonancia pequeña, 4 cuerdas templadas"));
-		this.repositoryI.save(new Libro("Melódica","Viento","teclado pequeño de 2 octavas, sonorizado por soplido"));
+		this.repositoryI.save(new Libro("La Cas Verde", "186", ".."));
+		this.repositoryI.save(new Libro("La guerra sin fin","1865",".."));
+		this.repositoryI.save(new Libro("Paco Yunque","1895",".."));
+		this.repositoryI.save(new Libro("Los heraldos negros","1895",".."));
+		this.repositoryI.save(new Libro("Escalas","1895",".."));
+		this.repositoryI.save(new Libro("Poemas humanos","1895",".."));
+		this.repositoryI.save(new Libro("La montallña azul","Percusión","."));
+
+		this.repositoryM.save(new Autor("Maria Arguedas"));
+		this.repositoryM.save(new Autor("Ricardo Palma"));
 		
-		Libro iVoz = new Libro("Voz","Viento",".");
-		this.repositoryI.save(iVoz);
+
+		Libro iCachorros = new Libro("Los Cachorros","1985",".");
+		this.repositoryI.save(iCachorros);
 		
-		Libro iGuitarraElectrica = new Libro("Guitarra Electrica","Electrónico", ".");
-		this.repositoryI.save(iGuitarraElectrica);
+		Libro iTrilce = new Libro("Trilce","1985", ".");
+		this.repositoryI.save(iTrilce);
+
+		Autor mLlosa = new Autor("Mario Vargas Llosa");
+		this.repositoryM.save(mLlosa);
+
+		Autor mVallejo = new Autor("Cesar vallejo");
+		this.repositoryM.save(mVallejo);
+
+		Biblioteca bIdat = new Biblioteca("Biblioteca Idat");
+		this.repositoryB.save(bIdat);
+
+		this.repositoryN.save(new Integrante(bIdat, mLlosa, iCachorros));
+		this.repositoryN.save(new Integrante(bIdat, mVallejo, iTrilce));
 		
-		this.repositoryI.save(new Libro("Batería","Percusión","."));
-
-		this.repositoryM.save(new Autor("Daniel F"));
-
-		Autor mFreddy = new Autor("Freddy");
-		this.repositoryM.save(mFreddy);
-
-		Autor mBrian = new Autor("Brian");
-		this.repositoryM.save(mBrian);
-
-		Biblioteca bQueen = new Biblioteca("Queen");
-		this.repositoryB.save(bQueen);
-
-		this.repositoryN.save(new Integrante(bQueen, mFreddy, iVoz));
-		this.repositoryN.save(new Integrante(bQueen, mBrian, iGuitarraElectrica));
 	}
 }

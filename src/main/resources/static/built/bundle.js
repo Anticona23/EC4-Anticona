@@ -40983,35 +40983,11 @@ var HomePage = /*#__PURE__*/function (_React$Component) {
           "width": "calc(100% / 3)"
         }
       }, /*#__PURE__*/React.createElement(Titulo, {
-        entidad: "Libros",
-        emoji: "\uD83C\uDFB8"
-      }), /*#__PURE__*/React.createElement(LibroList, {
-        libros: this.state.libros
-      }), /*#__PURE__*/React.createElement(Link, {
-        to: "/nuevo-libro"
-      }, "Nuevo Libro")), /*#__PURE__*/React.createElement("div", {
-        style: {
-          "width": "calc(100% / 3)"
-        }
-      }, /*#__PURE__*/React.createElement(Titulo, {
-        entidad: "Autores",
-        emoji: "\uD83C\uDFB6"
-      }), /*#__PURE__*/React.createElement(AutorList, {
-        autores: this.state.autores
-      }), /*#__PURE__*/React.createElement(Link, {
-        to: "/nuevo-autor"
-      }, "Nuevo Autor")), /*#__PURE__*/React.createElement("div", {
-        style: {
-          "width": "calc(100% / 3)"
-        }
-      }, /*#__PURE__*/React.createElement(Titulo, {
         entidad: "Bibliotecas",
         emoji: "\uD83D\uDC69\uD83C\uDFFC\u200D\uD83C\uDFA4"
       }), /*#__PURE__*/React.createElement(BibliotecaList, {
         bibliotecas: this.state.bibliotecas
-      }), /*#__PURE__*/React.createElement(Link, {
-        to: "/nueva-biblioteca"
-      }, "Nueva Biblioteca"))));
+      }))));
     }
   }]);
   return HomePage;
@@ -41276,7 +41252,7 @@ var NuevoIntegrantePage = function NuevoIntegrantePage() {
       setLibros(response.entity._embedded.libros);
     });
   }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Nuevo Ingreso"), /*#__PURE__*/React.createElement("form", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Nuevo Libro"), /*#__PURE__*/React.createElement("form", {
     onSubmit: handleSubmit
   }, /*#__PURE__*/React.createElement("label", {
     htmlFor: "autor"
@@ -41306,9 +41282,10 @@ var NuevoIntegrantePage = function NuevoIntegrantePage() {
     }, "(", libro.nombre, ")");
   })), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("input", {
     type: "submit",
-    value: "Nuevo Libro"
+    formAction: "/ver-biblioteca/1",
+    value: "Agregar"
   })), /*#__PURE__*/React.createElement(Link, {
-    to: "/"
+    to: "/ver-biblioteca/1"
   }, "Volver"));
 };
 module.exports = NuevoIntegrantePage;
@@ -41485,9 +41462,9 @@ var VerBibliotecaPage = function VerBibliotecaPage() {
       return setIntegrantes(response.entity);
     });
   }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Ver Biblioteca"), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("table", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", null, "Biblioteca"), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("table", {
     border: "1"
-  }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("td", null, biblioteca.nombre)))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h2", null, "Formaci\xF3n"), /*#__PURE__*/React.createElement("table", {
+  }, /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Nombre"), /*#__PURE__*/React.createElement("td", null, biblioteca.nombre)))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("h2", null, "Libros"), /*#__PURE__*/React.createElement("table", {
     border: "1"
   }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Autor"), /*#__PURE__*/React.createElement("th", null, "Libro"))), /*#__PURE__*/React.createElement("tbody", null, integrantes.map(function (integrante) {
     return /*#__PURE__*/React.createElement("tr", {

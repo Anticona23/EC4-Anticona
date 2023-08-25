@@ -45,7 +45,7 @@ const NuevoIntegrantePage = () => {
 
     return (
         <>
-            <h1>Nuevo Ingreso</h1>
+            <h1>Nuevo Libro</h1>
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor='autor'>Autor </label>
@@ -68,10 +68,10 @@ const NuevoIntegrantePage = () => {
                     })}
                 </select><br />
 
-                <input type="submit" value="Nuevo Libro" />
+                <input type="submit" formAction="/ver-biblioteca/1" value="Agregar" />
 
             </form>
-            <Link to="/">Volver</Link>
+            <Link to="/ver-biblioteca/1">Volver</Link>
         </>
     )
 }
