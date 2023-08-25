@@ -68,7 +68,7 @@ const NuevoIntegrantePage = () => {
                     })}
                 </select><br />
 
-                <input type="submit" formAction="/ver-biblioteca/1" value="Agregar" />
+                <input type="submit" formAction="/ver-biblioteca/1" value="Agregar Libro" />
 
             </form>
             <Link to="/ver-biblioteca/1">Volver</Link>

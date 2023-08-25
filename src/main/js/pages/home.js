@@ -25,7 +25,7 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<>
-				<h1>EC4-Anticona</h1>
+				<h1>Evaluacion Continua 4</h1>
 
 				<div style={  {"width": "100%", "display": "flex"}}>
 
